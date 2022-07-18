@@ -9,11 +9,25 @@ No final desta jornada, teremos um site estático, hospedado sem custos e integr
 ### Restrições
 
 - Hospedagem de arquivos HTML, CSS e Javascript;
-- Suporta a projetos em ReactJS;
-- Integração contínua com GitHub (CI/CD: entrega contínua e/ou à implantação contínua);
+- Suporte a projetos em ReactJS ou similares;
+- Integração contínua com GitHub (CI/CD: entrega contínua e/ou à implantação contínua).
+
+### Considerações iniciais
+
+Existem várias arquiteturas e possibilidades de hospedagens gratuitas, este documento é mais uma das proposições, dentre as excelentes soluções que existem na Internet.
+
+### Pré-requisitos
 
 ```python
->>> (artigo em desenvolvimento)
+
+```
+
+```python
+
+```
+
+```python
+
 ```
 
 ```python
