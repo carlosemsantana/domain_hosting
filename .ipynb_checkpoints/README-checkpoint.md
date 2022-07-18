@@ -39,7 +39,7 @@ Arquitetura JAMStack consiste em sites com a seguinte estrutura:
 
 Com o JAMStack o HTML é exibido sem a necessidade de renderizar informações de um servidor "backend" (retaguarda), com isso, o tempo de carregamento é rápido.
 
-Segue abaixo arquitetura "sintética" para a esta jornada, de forma breve vou descrever a seguir os passos de 1 a 11 necessários, com exemplos, para a reprodução deste experimento.
+Segue abaixo arquitetura "sintética" para esta jornada. Passos 1 a 11.
 
 ![](img/arquitetura_hospedagem_site.png)
 
