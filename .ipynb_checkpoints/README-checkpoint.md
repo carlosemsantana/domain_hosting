@@ -49,17 +49,98 @@ Não é obrigatório criar um domínio. No meu caso, eu registrei o domínio HTA
 
 ![](img/registro_dominio.png)
 
-### [4] Criar uma conta de e-mail
+### [4] Criar uma conta de e-mail com domínio personalizado
 
 Novamente, não é obrigatório criar uma conta de e-mail. Criei uma conta no GMail, porque pretendemos usar o serviço de caixa postal gratuito vinculado ao domínio HTA.TEC.BR para a nossa comunicação. Mais detalhes visite: [Criar contas no GMAIL](https://support.google.com/mail/answer/56256?hl=pt-BR) e [Vincular o domínio próprio no GMAIL](https://support.google.com/a/answer/140034?hl=pt-BR).
 
 ![](img/dominio_gmail.png)
 
+### [5-6] Preparar o GitHub
+
+Para hospedagem dos fontes do site, é preciso criar uma conta no GitHub; [Para criar uma conta acesse](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home).
+
+**Resumo desta etapa:**
+
+1. Crie uma conta de acesso GitHub;
+2. Acesse o GitHub com a conta criada e crie um repositório novo, onde o site será copiado (hospedado);
+3. Configure o repositório para trabalhar no formato PAGE;
+4. Configure o acesso remoto via chave SSH;
+5. Clone o repositório criado em sua máquina local;
+6. Publique o site;
+
+### Repositório
+
+![](img/criar_repositorio.png)
+
+### Repositório tipo "Pages"
+
+![](img/repositorio_pages.png)
+
+### Crie uma chave SSH
+
+Para facilitar o processo de integração com o GitHub crie uma chave de acesso SSH na sua máquina e configure o GitHub para permitir a sua autenticação. Caso esteja usando **Linux** siga a dica seguinte:
+
+Abra o shell do Linux e rode individualmente os seguintes comandos:
+
+```python
+$ ssh-keygen # Cria um par de chaves SSH localmente.
+$ eval $(ssh-agent -s) # Instância o agente SSH.
+$ ssh-add ~/.ssh/acesso_site_git # Adicione a chave privada.
+# Liste e copie a sua chave pública na memória e poste na configuração da SSH Key do GitHub.
+$ cat ~/.ssh/acesso_site_git.pub # Chave pública
+```
+
+### Configure a chave pública no GitHub
+
+![](img/ssh_key.png)
+
+```python
+# Vamos testar a conexão que foi configurada.
+$ ssh -T git@github.com # Teste a conexão. (Só funciona se você já tiver configurado a sua chave no Git)
+# Resposta do teste de conexão:
+$ Hi <seu login>! You ve successfully authenticated, but GitHub does not provide shell access.
+```
+
+### Clone o repositório
+
+Se estiver usando o Linux você pode criar usar o seguinte comando:
+
+```python
+$ git clone https://github.com/htaengenharia/site.git hta.github.site.local
+```
+
+![](img/clone_repo.png)
+
+Depois que clonar o diretório, ajuste o aquivo "config" que está no diretório **.git** no raiz, conforme exemplo abaixo.
+
+![](img/config.png)
+
+### Publique o site
+
+No exemplo abaixo criei uma página HTML com uma única imagens centralizada e postei no GitHub, usando a sequência de comandos Git abaixo:
+
+![](img/commit.png)
+
+Para visualizar o resultado deste "commit", acesse o seu repositório.
+
+![](img/first_commit.png)
+
+Para acessar o diretório via "browser" e visualizar o site precisa digitar o endereço criado e fornecido pelo GitHub, conforme ilustrado na figura 5. https://htaengenharia.github.io/site/.
+
+### [7] Netlify Drop
+
+O Netlify Drop é uma forma de hospedar sites e aplicativos estáticos gratuitamente. Ele automatiza o processo de hospedagem sem a necessidade de FTP ou de compilação. No nosso exemplo o Netlify permitirá que configuremos um domínio próprio apontando para o conteúdo hospedado no GitHub. 
+Expandindo os conceitos, este é ser um exemplo simples de CI/CD, continuous integration/continuous delivery.
+
+(em desenvolvimento), os próximos passos são: listar as próximas etapas e exemplificar e concluir o post.
+
 ```python
 
 ```
 
-(em desenvolvimento)
+```python
+
+```
 
 ```python
 
