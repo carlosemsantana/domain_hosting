@@ -132,7 +132,7 @@ Para acessar o diretório via "browser" e visualizar o site precisa digitar o en
 O Netlify Drop é uma forma de hospedar sites e aplicativos estáticos gratuitamente. Ele automatiza o processo de hospedagem sem a necessidade de FTP ou de compilação. No nosso exemplo o Netlify permitirá que configuremos um domínio próprio apontando para o conteúdo hospedado no GitHub. 
 Expandindo os conceitos, este é ser um exemplo simples de CI/CD, continuous integration/continuous delivery.
 
-(em desenvolvimento), os próximos passos são: listar as próximas etapas e exemplificar e concluir o post.
+(em desenvolvimento)
 
 ```python
 
