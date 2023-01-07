@@ -1,6 +1,6 @@
 # Arquitetura de um site JAMStack
 
-### A Jamstack é uma arquitetura criada para construir estáticos.
+### A Jamstack é uma arquitetura criada para construir sites estáticos.
 
 ### Objetivos
 
@@ -82,6 +82,7 @@ Para facilitar o processo de integração com o GitHub crie uma chave de acesso 
 
 Abra o shell do Linux e rode individualmente os seguintes comandos:
 
+<!-- #region -->
 ```python
 $ ssh-keygen # Cria um par de chaves SSH localmente.
 $ eval $(ssh-agent -s) # Instância o agente SSH.
@@ -89,26 +90,32 @@ $ ssh-add ~/.ssh/acesso_site_git # Adicione a chave privada.
 # Liste e copie a sua chave pública na memória e poste na configuração da SSH Key do GitHub.
 $ cat ~/.ssh/acesso_site_git.pub # Chave pública
 ```
+<!-- #endregion -->
 
 ### Configure a chave pública no GitHub
 
 ![](img/ssh_key.png)
 
-```python
+<!-- #region -->
+``` python
 # Vamos testar a conexão que foi configurada.
 $ ssh -T git@github.com # Teste a conexão. (Só funciona se você já tiver configurado a sua chave no Git)
 # Resposta do teste de conexão:
 $ Hi <seu login>! You ve successfully authenticated, but GitHub does not provide shell access.
 ```
+<!-- #endregion -->
 
 ### Clone o repositório
 
-Se estiver usando o Linux você pode criar usar o seguinte comando:
+Se estiver usando o Linux você pode clonar o repositório com o seguinte comando (aplique ao seu repositório, este é um exemplo): 
 
-```python
-$ git clone https://github.com/htaengenharia/site.git hta.github.site.local
+<!-- #region -->
+``` python
+$ git clone https://github.com/htaengenharia/site.git hta.github.site.local (exemplo)
 ```
+<!-- #endregion -->
 
+<!-- #region -->
 ![](img/clone_repo.png)
 
 Depois que clonar o diretório, ajuste o aquivo "config" que está no diretório **.git** no raiz, conforme exemplo abaixo.
@@ -129,22 +136,105 @@ Para acessar o diretório via "browser" e visualizar o site precisa digitar o en
 
 ### [7] Netlify Drop
 
-O Netlify Drop é uma forma de hospedar sites e aplicativos estáticos gratuitamente. Ele automatiza o processo de hospedagem sem a necessidade de FTP ou de compilação. No nosso exemplo o Netlify permitirá que configuremos um domínio próprio apontando para o conteúdo hospedado no GitHub. 
+O Netlify Drop é uma forma de hospedar sites e aplicativos estáticos gratuitamente. Ele automatiza o processo de hospedagem sem a necessidade de FTP ou de compilação. No nosso exemplo o Netlify permitirá a configuração de um domínio próprio apontando para o conteúdo hospedado no GitHub.
 Expandindo os conceitos, este é ser um exemplo simples de CI/CD, continuous integration/continuous delivery.
 
-(em desenvolvimento)
 
-```python
+**Resumo desta etapa:**
 
-```
+1. Cadastre-se no Netlify;
+2. Importe o site do seu repositório no github;
+3. Configure o deploy;
+4. Primeiro deploy do site;
+5. Domínio temporário.
+<!-- #endregion -->
 
-```python
+### Cadastro Netlify
 
-```
+Acessar o site www.netlify.com, crie uma conta e depois inicie o processo integração contínua entre o repositório com os dados do seu projeto ou site.
 
-```python
+![](img/welcome-netlify.png)
 
-```
+
+
+###  Importe o site do seu repositório no github ###
+
+![](img/home-netlify.png)
+
+
+A primeira etapa nesta fase do processo de integração é vincular o seu repositório Github com o serviço Netlify. Para vincular é preciso importar um projeto da sua lista de repositórios no github. (Lembrando que o repositório precisará ser configurado para trabalhar no formato PAGE e ter arquivo index.hrml)
+
+![](img/importar-projeto.png)
+
+
+Deploy do site; após conectar no Git, selecione o repositório e configure o projeto.
+
+![](img/deploy-part1.png)
+
+
+### Configuração ###
+
+Configuração de como ocorrerá a atualização automática do conteúdo publicado.
+
+![](img/deploy-part2.png)
+
+
+
+![](img/deploy-part1b.png)
+
+
+### Deploy Site ###
+
+Após configurar e aplicar ***deploy site***, o processo de víncular e configurar a integração contínua entre o conteúdo do site estático hospedado no Github e Netlify estará concluído, quando o conteúdo do site for atualizado no Github, será replicado no aplicativo Netlify que exibirá o site atualizado na Internet.
+
+Nesta etapa um domínio temporário será criado para que você use. Não usaremos esse domínio, porque vamos trabalhar com domínio próprio.
+
+![](img/dominio-temp.png)
+
+
+O próximo passo será ajustar o DNS em Registro.BR para que seja possível usarmos o domínio próprio. Para facilitar a nossa digitação mudamos o nome do site no aplicativo Netlify (em configurações do site) para ***2ms.netlify.app***.
+
+![](img/dominio-temp2.png)
+
+<!-- #region -->
+### [8] Registro.BR 
+
+
+As próximas etapas são: 
+
+1. Criar um sub-dominio e apontar no DNS primário para 2ms.netlify.app. Abaixo exemplo de como criar uma entrada CNAME no DNS Registro.BR. Estamos apontando um sub-domínio próprio para o domínio que o aplicativo Netlify disponibilizou.
+
+
+![](img/registro_dominio-cname.png)
+
+2. Configurar no aplicativo Netlify o sub-domínio ***jamstack.2ms.tec.br***
+
+![](img/configurar-dns.png)
+
+3. DNS Netlify configurado. Agora, quando digitarmos no browser ***jamstack.2ms.tec.br*** o site será exibido.
+
+![](img/dns.png)
+
+4. Último passo é configurar o HTTPS.
+
+![](img/HTTPS.png)
+
+No final da configuração, o acesso ao site poderá ocorrer também via sub-domínio ***jamstack.2ms.tec.br***
+<!-- #endregion -->
+
+<!-- #region -->
+### Conclusão ###
+
+Arquitetura JAMStack permite que tenhamos um site estático com domínio próprio sem custo de hospedagem, com atualização do conteúdo através de integração contínua (CI) usando o Github e o aplicativo Netlify Drop como principais tecnologias. Possíveis aplicações para esta solução pode ser, sites estáticos para Startups em fase de ideação, portfólios pessoais ou profissionais (CV) ou ainda trabalhos acadêmicos.
+
+
+Espero ter contribuido com o seu desenvolvimento de alguma forma.
+
+
+
+[Carlos Eugênio](https://github.com/carlosemsantana)
+
+<!-- #endregion -->
 
 ### Referências:
 
@@ -157,7 +247,3 @@ Expandindo os conceitos, este é ser um exemplo simples de CI/CD, continuous int
 [7] DNS - [https://pt.wikipedia.org](https://pt.wikipedia.org/wiki/Sistema_de_Nomes_de_Dom%C3%ADnio)<br>
 [8] Netlify - [https://app.netlify.com](https://app.netlify.com/drop)<br>
 [9] JAMStact - [https://en.wikipedia.org](https://en.wikipedia.org/wiki/Jamstack)
-
-```python
-
-```
