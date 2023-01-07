@@ -225,7 +225,7 @@ No final da configuração, o acesso ao site poderá ocorrer também via sub-dom
 <!-- #region -->
 ### Conclusão ###
 
-Arquitetura JAMStack permite que tenhamos um site estático com domínio próprio sem custo de hospedagem, com atualização do conteúdo através de integração contínua (CI) usando o Github e o aplicativo Netlify Drop como principais tecnologias. Possíveis aplicações para esta solução pode ser, sites estáticos para Startups em fase de ideação, portfólios pessoais ou profissionais (CV) ou ainda trabalhos acadêmicos.
+Arquitetura JAMStack permite que tenhamos um site estático com domínio próprio sem custo de hospedagem, com atualização do conteúdo através de integração contínua (CI) usando o Github e o aplicativo Netlify Drop como principais tecnologias. Possíveis aplicações para esta solução pode ser: sites estáticos para Startups em fase de ideação, portfólios pessoais ou profissionais (CV) ou ainda trabalhos acadêmicos.
 
 
 Espero ter contribuido com o seu desenvolvimento de alguma forma.
